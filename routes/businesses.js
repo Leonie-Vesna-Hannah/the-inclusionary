@@ -5,7 +5,7 @@ const Business = require("../models/Business");
 // get all the businesses
 router.get("/", (req, res, next) => {
   Business.find()
-    .then((businesses) => { 
+    .then((businesses) => {
       console.log(businesses);
       res.status(200).json(businesses);
     })
@@ -74,7 +74,7 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res, next) => {
   const {
     title,
-    headOfBusiness, 
+    headOfBusiness,
     picture,
     description,
     category,
@@ -87,7 +87,19 @@ router.put("/:id", (req, res, next) => {
   } = req.body;
   Business.findByIdAndUpdate(
     req.params.id,
-    { title, headOfBusiness, picture, description, category, street, houseNumber, city, zipCode, country, email },
+    {
+      title,
+      headOfBusiness,
+      picture,
+      description,
+      category,
+      street,
+      houseNumber,
+      city,
+      zipCode,
+      country,
+      email,
+    },
     // this ensures that we are getting the updated document as a return
     { new: true }
   )
@@ -111,10 +123,6 @@ router.delete("/:id", (req, res, next) => {
 });
 
 module.exports = router;
-
-
-
-
 
 // router.post('/', (req, res) => {
 //   const title = req.body.title;
