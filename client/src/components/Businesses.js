@@ -3,6 +3,11 @@ import BusinessList from "./BusinessList";
 
 export default class Businesses extends Component {
   render() {
-    return <div>{/* <BusinessList /> */}</div>;
+    return (
+      <div>
+        <h2>Businesses</h2>
+        {/* <BusinessList /> */}
+      </div>
+    );
   }
 }

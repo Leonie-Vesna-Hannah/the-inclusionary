@@ -11,22 +11,22 @@ const handleLogout = (props) => {
 
 function Header(props) {
   return (
-    <div>
+    <section>
       {props.user ? (
-        <div>
+        <nav>
           <Link to="/" onClick={() => handleLogout(props)}>
             Log out
           </Link>
           <Link to="/my-own-business">See your business profile</Link>
-        </div>
+        </nav>
       ) : (
-        <div>
-          <Link to="/businesses">Home</Link>
+        <nav>
+          <Link to="/">Home</Link>
           <Link to="/signup">Signup</Link>
           <Link to="/login">Login</Link>
-        </div>
+        </nav>
       )}
-    </div>
+    </section>
   );
 }
 
