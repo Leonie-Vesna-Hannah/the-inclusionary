@@ -7,9 +7,9 @@ export default function BusinessList(props) {
       {props.businesses.map((business) => {
         return (
           <div key={business._id}>
-            <h3>
+            <h2>
               <Link to={`/businesses/${business._id}`}>{business.title}</Link>
-            </h3>
+            </h2>
           </div>
         );
       })}
