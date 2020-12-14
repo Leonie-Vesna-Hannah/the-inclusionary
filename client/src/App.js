@@ -8,11 +8,12 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { Route, Redirect } from "react-router-dom";
 import AddBusiness from "./components/AddBusiness";
+import axios from "axios";
 
 class App extends Component {
   state = {
-    // user: this.props.user,
-    user: "",
+    user: this.props.user,
+    // user: "",
   };
 
   setUser = (user) => {

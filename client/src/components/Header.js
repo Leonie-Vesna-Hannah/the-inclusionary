@@ -11,7 +11,7 @@ const handleLogout = (props) => {
 
 function Header(props) {
   return (
-    <section>
+    <section className="header-section">
       {props.user ? (
         <nav>
           <Link to="/" onClick={() => handleLogout(props)}>
