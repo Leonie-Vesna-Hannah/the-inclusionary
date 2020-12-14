@@ -9,6 +9,8 @@ import Login from "./components/Login";
 import { Route, Redirect } from "react-router-dom";
 import AddBusiness from "./components/AddBusiness";
 import axios from "axios";
+import BusinessDetails from "./components/BusinessDetails.js";
+import Home from "./components/Home.js";
 
 class App extends Component {
   state = {
@@ -27,6 +29,8 @@ class App extends Component {
       <div className="App">
         <Header user={this.state.user} setUser={this.setUser} />
 
+        <Route exact path="/" component={Home} />
+
         <Route
           exact
           path="/signup"
@@ -38,6 +42,8 @@ class App extends Component {
           path="/login"
           render={(props) => <Login setUser={this.setUser} {...props} />}
         />
+
+        <Route exact path="/businesses/:id" component={BusinessDetails} />
         <Businesses />
         <Footer />
       </div>
