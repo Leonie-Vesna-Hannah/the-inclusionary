@@ -46,11 +46,13 @@ class App extends Component {
 
         <Route exact path="/businesses/:id" component={BusinessDetails} />
 
-        <Route
+        <Route exact path="/add-business" component={AddBusiness} />
+
+        {/* <Route
           exact
           path="/add-business"
           render={(props) => <AddBusiness setUser={this.setUser} {...props} />}
-        />
+        /> */}
 
         <Route
           exact
