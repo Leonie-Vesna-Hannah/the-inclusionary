@@ -57,15 +57,33 @@ export default class BusinessDetails extends Component {
     this.getData();
   };
 
+  deleteBusiness = () => {
+    // delete this business from the database
+    const id = this.props.match.params.id;
+    axios.delete(`/api/businesses/${id}`).then(() => {
+      // this is how you do a redirect with react router dom
+      this.props.history.push("/my-own-business");
+    });
+  };
+
   render() {
     if (this.state.error) return <h1>{this.state.error}</h1>;
     if (!this.state.business) return <h1>Loading...</h1>;
 
+    let allowedToDelete = false;
+    const user = this.props.user;
+    const owner = this.state.business.owner;
+    if (user && user._id === owner) allowedToDelete = true;
+
     return (
-      <div>
+      <section className="business-details-section">
         <h1>{this.state.business.title}</h1>
         <p>{this.state.business.headOfBusiness}</p>
-        <img src={this.state.business.picture} alt="business" />
+        <img
+          style={{ width: "100px" }}
+          src={this.state.business.picture}
+          alt="business"
+        />
         <p>{this.state.business.description}</p>
         <p>{this.state.business.category}</p>
         <p>{this.state.business.street}</p>
@@ -74,7 +92,11 @@ export default class BusinessDetails extends Component {
         <p>{this.state.business.zipCode}</p>
         <p>{this.state.business.country}</p>
         <p>{this.state.business.email}</p>
-      </div>
+
+        {allowedToDelete && (
+          <button onClick={this.deleteBusiness}>Delete Business</button>
+        )}
+      </section>
     );
   }
 }

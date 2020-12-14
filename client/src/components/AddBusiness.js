@@ -79,7 +79,6 @@ class AddBusiness extends Component {
           imagePublicID: this.state.publicID,
         })
         .then(() => {
-          // this.props.refreshData();
           // set the form to it's initial state (empty input fields)
           this.setState({
             title: "",
