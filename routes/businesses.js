@@ -60,7 +60,6 @@ router.post("/", (req, res) => {
     email,
   } = req.body;
   const owner = req.user._id;
-  console.log("picture", picture);
   Business.create({
     title,
     headOfBusiness,
@@ -117,7 +116,7 @@ router.put("/:id", (req, res, next) => {
     { new: true }
   )
     .then((business) => {
-      console.log(business);
+      // console.log(business);
       res.status(200).json(business);
     })
     .catch((err) => {

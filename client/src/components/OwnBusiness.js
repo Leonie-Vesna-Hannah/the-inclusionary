@@ -1,3 +1,6 @@
+// show my own business
+
+// + Button to -> edit business
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
