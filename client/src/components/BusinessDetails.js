@@ -26,7 +26,7 @@ export default class BusinessDetails extends Component {
     axios
       .get(`/api/businesses/${id}`)
       .then((response) => {
-        console.log(response);
+        console.log("response from get data", response);
         this.setState({
           business: response.data,
           title: response.data.title,
@@ -44,7 +44,9 @@ export default class BusinessDetails extends Component {
         });
       })
       .catch((err) => {
-        console.log(err.response);
+        // console.log(err.response);
+        console.log(err);
+
         if (err.response.status === 404) {
           this.setState({
             error: "Sorry - Business Not found",
@@ -72,6 +74,9 @@ export default class BusinessDetails extends Component {
 
     let allowedToDelete = false;
     const user = this.props.user;
+    console.log("user", user);
+    console.log("props", this.props);
+
     const owner = this.state.business.owner;
     if (user && user._id === owner) allowedToDelete = true;
 
