@@ -6,7 +6,19 @@ const Business = require("../models/Business");
 router.get("/", (req, res, next) => {
   Business.find()
     .then((businesses) => {
-      console.log(businesses);
+      // console.log(businesses);
+      res.status(200).json(businesses);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+// get owed businesses
+router.get("/my-own-business", (req, res, next) => {
+  Business.find({ owner: req.session.passport.user })
+    .then((businesses) => {
+      console.log("owned business", businesses);
       res.status(200).json(businesses);
     })
     .catch((err) => {
@@ -48,7 +60,7 @@ router.post("/", (req, res) => {
     email,
   } = req.body;
   const owner = req.user._id;
-
+  console.log("picture", picture);
   Business.create({
     title,
     headOfBusiness,

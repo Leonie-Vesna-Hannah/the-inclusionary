@@ -17,7 +17,8 @@ function Header(props) {
           <Link to="/" onClick={() => handleLogout(props)}>
             Log out
           </Link>
-          <Link to="/OwnBusiness">See your business profile</Link>
+          <Link to="/my-own-business">See your business profile</Link>
+          <Link to="/">Home</Link>
         </nav>
       ) : (
         <nav>
