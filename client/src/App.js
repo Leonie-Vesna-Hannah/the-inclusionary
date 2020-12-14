@@ -11,6 +11,8 @@ import AddBusiness from "./components/AddBusiness";
 import axios from "axios";
 import BusinessDetails from "./components/BusinessDetails.js";
 import Home from "./components/Home.js";
+import OwnBusiness from "./components/OwnBusiness.js";
+import StyleGuide from "./components/StyleGuide.js"; 
 
 class App extends Component {
   state = {
@@ -44,6 +46,10 @@ class App extends Component {
         />
 
         <Route exact path="/businesses/:id" component={BusinessDetails} />
+
+        <Route exact path="/OwnBusiness" component={OwnBusiness} />
+
+        <Route exact paht="/StyleGuide" component={StyleGuide} />
        
 
         <Footer />
