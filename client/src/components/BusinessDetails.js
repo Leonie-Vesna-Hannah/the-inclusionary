@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import EditBusiness from "./EditBusiness";
 
 export default class BusinessDetails extends Component {
   state = {
@@ -7,18 +8,17 @@ export default class BusinessDetails extends Component {
     editForm: false,
     error: null,
     title: "",
-    headOfBusiness: "", 
-    picture: "", 
+    headOfBusiness: "",
+    picture: "",
     description: "",
     category: [],
     street: "",
     houseNumber: "",
     city: "",
     zipCode: "",
-    country: "", 
+    country: "",
     email: "",
   };
-  
 
   getData = () => {
     const id = this.props.match.params.id;
@@ -30,9 +30,9 @@ export default class BusinessDetails extends Component {
         this.setState({
           business: response.data,
           title: response.data.title,
-          headOfBusiness: response.data.headOfBusiness, 
+          headOfBusiness: response.data.headOfBusiness,
           picture: response.data.picture,
-          description: response.data.description, 
+          description: response.data.description,
           category: response.data.category,
           street: response.data.street,
           houseNumber: response.data.houseNumber,
@@ -57,17 +57,16 @@ export default class BusinessDetails extends Component {
     this.getData();
   };
 
-
   render() {
     if (this.state.error) return <h1>{this.state.error}</h1>;
     if (!this.state.business) return <h1>Loading...</h1>;
-    
+
     return (
       <div>
         <h1>{this.state.business.title}</h1>
         <p>{this.state.business.headOfBusiness}</p>
         <p>{this.state.business.picture}</p>
-        <p>{this.state.business.description}</p> 
+        <p>{this.state.business.description}</p>
         <p>{this.state.business.category}</p>
         <p>{this.state.business.street}</p>
         <p>{this.state.business.houseNumber}</p>
@@ -75,9 +74,8 @@ export default class BusinessDetails extends Component {
         <p>{this.state.business.zipCode}</p>
         <p>{this.state.business.country}</p>
         <p>{this.state.business.email}</p>
-        Test Test Test         
+        Test Test Test
       </div>
     );
-    
   }
 }

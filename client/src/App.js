@@ -2,15 +2,16 @@
 import "./App.css";
 import React, { Component } from "react";
 import Header from "./components/Header.js";
-import Businesses from "./components/Businesses.js";
-import Footer from "./components/Footer.js";
+import Businesses from "./components/Businesses";
+import Footer from "./components/Footer";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { Route, Redirect } from "react-router-dom";
 import AddBusiness from "./components/AddBusiness";
 import axios from "axios";
-import BusinessDetails from "./components/BusinessDetails.js";
-import Home from "./components/Home.js";
+import BusinessDetails from "./components/BusinessDetails";
+import Home from "./components/Home";
+import OwnBusiness from "./components/OwnBusiness";
 
 class App extends Component {
   state = {
@@ -44,6 +45,20 @@ class App extends Component {
         />
 
         <Route exact path="/businesses/:id" component={BusinessDetails} />
+
+        <Route
+          exact
+          path="/add-business"
+          render={(props) => <AddBusiness setUser={this.setUser} {...props} />}
+        />
+
+        <Route
+          exact
+          path="/my-own-business"
+          render={(props) => <OwnBusiness setUser={this.setUser} {...props} />}
+        />
+
+        {/* <Route exact path="/add-business" component={AddBusiness} /> */}
 
         <Footer />
       </div>
