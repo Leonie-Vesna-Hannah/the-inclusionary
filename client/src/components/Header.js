@@ -18,6 +18,7 @@ function Header(props) {
             Log out
           </Link>
           <Link to="/my-own-business">See your business profile</Link>
+          <Link to="/">Home</Link>
         </nav>
       ) : (
         <nav>

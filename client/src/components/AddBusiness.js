@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import service from "../services/upload.js";
 
 class AddBusiness extends Component {
   state = {
@@ -7,7 +8,6 @@ class AddBusiness extends Component {
     title: "",
     headOfBusiness: "",
     description: "",
-    picture: "",
     // category: [],
     street: "",
     houseNumber: "",
@@ -16,6 +16,10 @@ class AddBusiness extends Component {
     country: "",
     email: "",
     // design: [],
+    picture: "",
+    publicID: "",
+    submitted: false,
+    imageSelected: false,
   };
 
   handleChange = (e) => {
@@ -25,44 +29,83 @@ class AddBusiness extends Component {
     });
   };
 
+  handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+    this.setState({
+      imageSelected: true,
+    });
+    const uploadData = new FormData();
+    uploadData.append("picture", e.target.files[0]);
+
+    service
+      .handleUpload(uploadData)
+      .then((response) => {
+        const picture = response.secure_url;
+        const publicID = response.public_id;
+        console.log("res from handleupload: ", response.secure_url);
+        this.setState({ picture: picture, publicID: publicID });
+        console.log("new state: ", this.state.picture);
+        // check if the form already got submitted and only waits for the image upload
+        if (this.state.submitted === true) {
+          this.handleSubmit();
+        }
+      })
+      .catch((err) => {
+        this.setState({
+          imageSelected: false,
+        });
+        console.log("Error while uploading the file: ", err);
+      });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
-    axios
-      .post("/api/businesses", {
-        title: this.state.title,
-        headOfBusiness: this.state.headOfBusiness,
-        description: this.state.description,
-        picture: this.state.picture,
-        // category: this.state.category,
-        street: this.state.street,
-        houseNumber: this.state.houseNumber,
-        city: this.state.city,
-        zipCode: this.state.zipCode,
-        country: this.state.country,
-        email: this.state.email,
-        // design: this.state.design,
-      })
-      .then(() => {
-        // set the form to it's initial state (empty input fields)
-        this.setState({
-          title: "",
-          headOfBusiness: "",
-          description: "",
-          picture: "",
-          category: [],
-          street: "",
-          houseNumber: null,
-          city: "",
-          zipCode: null,
-          email: "",
-          // design: [],
-        });
-        this.props.history.push("/my-own-business");
-        // update the parent components state (in Projects) by calling getData()
-        //this.props.getData();
-      })
-      .catch((err) => console.log(err));
+    if (this.state.picture || !this.state.imageSelected) {
+      axios
+        .post("/api/businesses", {
+          title: this.state.title,
+          headOfBusiness: this.state.headOfBusiness,
+          description: this.state.description,
+          // category: this.state.category,
+          street: this.state.street,
+          houseNumber: this.state.houseNumber,
+          city: this.state.city,
+          zipCode: this.state.zipCode,
+          country: this.state.country,
+          email: this.state.email,
+          // design: this.state.design,
+          picture: this.state.picture,
+          publicID: this.state.publicID,
+        })
+        .then(() => {
+          this.props.refreshData();
+          // set the form to it's initial state (empty input fields)
+          this.setState({
+            title: "",
+            headOfBusiness: "",
+            description: "",
+            category: [],
+            street: "",
+            houseNumber: null,
+            city: "",
+            zipCode: null,
+            email: "",
+            // design: [],
+            picture: "",
+            publicID: "",
+          });
+          this.props.history.push("/my-own-business");
+          // update the parent components state (in Projects) by calling getData()
+          //this.props.getData();
+        })
+        .catch((err) => console.log(err));
+    } else {
+      // set a flag that the project got submitted
+      this.setState({
+        submitted: true,
+      });
+    }
   };
 
   render() {
@@ -178,7 +221,13 @@ class AddBusiness extends Component {
             onChange={this.handleChange}
           />
           <br></br>
-
+          <label htmlFor="picture">Image:</label>
+          <input
+            type="file"
+            name="picture"
+            id="picture"
+            onChange={this.handleFileUpload}
+          />
           <button type="submit">Add your Business</button>
         </form>
       </section>
