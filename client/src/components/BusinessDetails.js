@@ -20,7 +20,6 @@ export default class BusinessDetails extends Component {
   };
   
 
-
   getData = () => {
     const id = this.props.match.params.id;
     // get the business that was clicked from the server
@@ -58,9 +57,6 @@ export default class BusinessDetails extends Component {
     this.getData();
   };
 
-  
-
-  
 
   render() {
     if (this.state.error) return <h1>{this.state.error}</h1>;

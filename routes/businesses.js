@@ -23,6 +23,7 @@ router.get("/:id", (req, res, next) => {
         console.log("no business");
         res.status(404).json(business);
       } else {
+        console.log("sbusiness:" + business);
         res.status(200).json(business);
       }
     })
