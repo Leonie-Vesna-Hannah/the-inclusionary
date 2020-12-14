@@ -29,7 +29,8 @@ export default class Businesses extends Component {
   render() {
     return (
       <div className="businesses-container">
-        {// <AddBusiness getData={this.getData} />
+        {
+          // <AddBusiness getData={this.getData} />
         }
         <BusinessList businesses={this.state.businesses} />
       </div>
