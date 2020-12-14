@@ -54,19 +54,11 @@ class App extends Component {
 
         <Route exact path="/add-business" component={AddBusiness} />
 
-        {/* <Route
-          exact
-          path="/add-business"
-          render={(props) => <AddBusiness setUser={this.setUser} {...props} />}
-        /> */}
-
         <Route
           exact
           path="/my-own-business"
           render={(props) => <OwnBusiness setUser={this.setUser} {...props} />}
         />
-
-        {/* <Route exact path="/add-business" component={AddBusiness} /> */}
 
         <Footer />
       </div>

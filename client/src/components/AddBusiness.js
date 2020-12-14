@@ -217,6 +217,8 @@ class AddBusiness extends Component {
             id="picture"
             onChange={this.handleFileUpload}
           />
+          <br></br>
+
           <button type="submit">Add your Business</button>
         </form>
       </section>

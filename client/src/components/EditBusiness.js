@@ -6,14 +6,14 @@ class EditBusiness extends Component {
     return (
       <section>
         <h1>Edit business:</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.props.handleSubmit}>
           <label htmlFor="title">Title: </label>
           <input
             type="text"
             id="title"
             name="title"
-            value={this.state.title}
-            onChange={this.handleChange}
+            value={this.props.title}
+            onChange={this.props.handleChange}
           />
           <br></br>
           <label htmlFor="headOfBusiness">Head of business: </label>
@@ -21,8 +21,8 @@ class EditBusiness extends Component {
             type="text"
             id="headOfBusiness"
             name="headOfBusiness"
-            value={this.state.headOfBusiness}
-            onChange={this.handleChange}
+            value={this.props.headOfBusiness}
+            onChange={this.props.handleChange}
           />
           <br></br>
           <label htmlFor="description">Description: </label>
@@ -30,18 +30,8 @@ class EditBusiness extends Component {
             type="text"
             id="description"
             name="description"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
-          <br></br>
-
-          <label htmlFor="picture">Picture: </label>
-          <input
-            type="text"
-            id="picture"
-            name="picture"
-            value={this.state.picture}
-            onChange={this.handleChange}
+            value={this.props.description}
+            onChange={this.props.handleChange}
           />
           <br></br>
 
@@ -50,8 +40,8 @@ class EditBusiness extends Component {
             type="text"
             id="category"
             name="category"
-            value={this.state.category}
-            onChange={this.handleChange}
+            value={this.props.category}
+            onChange={this.props.handleChange}
           />
           <br></br>
 
@@ -60,8 +50,8 @@ class EditBusiness extends Component {
             type="text"
             id="street"
             name="street"
-            value={this.state.street}
-            onChange={this.handleChange}
+            value={this.props.street}
+            onChange={this.props.handleChange}
           />
           <br></br>
 
@@ -70,8 +60,8 @@ class EditBusiness extends Component {
             type="number"
             id="houseNumber"
             name="houseNumber"
-            value={this.state.houseNumber}
-            onChange={this.handleChange}
+            value={this.props.houseNumber}
+            onChange={this.props.handleChange}
           />
           <br></br>
 
@@ -80,8 +70,8 @@ class EditBusiness extends Component {
             type="text"
             id="city"
             name="city"
-            value={this.state.city}
-            onChange={this.handleChange}
+            value={this.props.city}
+            onChange={this.props.handleChange}
           />
           <br></br>
 
@@ -90,8 +80,8 @@ class EditBusiness extends Component {
             type="number"
             id="zipCode"
             name="zipCode"
-            value={this.state.zipCode}
-            onChange={this.handleChange}
+            value={this.props.zipCode}
+            onChange={this.props.handleChange}
           />
           <br></br>
 
@@ -100,8 +90,8 @@ class EditBusiness extends Component {
             type="text"
             id="country"
             name="country"
-            value={this.state.country}
-            onChange={this.handleChange}
+            value={this.props.country}
+            onChange={this.props.handleChange}
           />
           <br></br>
 
@@ -110,11 +100,18 @@ class EditBusiness extends Component {
             type="text"
             id="email"
             name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
+            value={this.props.email}
+            onChange={this.props.handleChange}
           />
           <br></br>
-
+          <label htmlFor="picture">Image:</label>
+          <input
+            type="file"
+            name="picture"
+            id="picture"
+            onChange={this.props.handleFileUpload}
+          />
+          <br></br>
           <button type="submit">Update Business</button>
         </form>
       </section>
