@@ -65,7 +65,7 @@ export default class BusinessDetails extends Component {
       <div>
         <h1>{this.state.business.title}</h1>
         <p>{this.state.business.headOfBusiness}</p>
-        <p>{this.state.business.picture}</p>
+        <img src={this.state.business.picture} alt="business" />
         <p>{this.state.business.description}</p>
         <p>{this.state.business.category}</p>
         <p>{this.state.business.street}</p>
@@ -74,7 +74,6 @@ export default class BusinessDetails extends Component {
         <p>{this.state.business.zipCode}</p>
         <p>{this.state.business.country}</p>
         <p>{this.state.business.email}</p>
-        Test Test Test
       </div>
     );
   }

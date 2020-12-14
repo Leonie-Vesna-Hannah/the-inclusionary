@@ -76,16 +76,16 @@ class AddBusiness extends Component {
           email: this.state.email,
           // design: this.state.design,
           picture: this.state.picture,
-          publicID: this.state.publicID,
+          imagePublicID: this.state.publicID,
         })
         .then(() => {
-          this.props.refreshData();
+          // this.props.refreshData();
           // set the form to it's initial state (empty input fields)
           this.setState({
             title: "",
             headOfBusiness: "",
             description: "",
-            category: [],
+            // category: [],
             street: "",
             houseNumber: null,
             city: "",
@@ -138,16 +138,6 @@ class AddBusiness extends Component {
             id="description"
             name="description"
             value={this.state.description}
-            onChange={this.handleChange}
-          />
-          <br></br>
-
-          <label htmlFor="picture">Picture: </label>
-          <input
-            type="text"
-            id="picture"
-            name="picture"
-            value={this.state.picture}
             onChange={this.handleChange}
           />
           <br></br>
