@@ -44,6 +44,7 @@ class App extends Component {
         />
 
         <Route exact path="/businesses/:id" component={BusinessDetails} />
+
         <Footer />
       </div>
     );
