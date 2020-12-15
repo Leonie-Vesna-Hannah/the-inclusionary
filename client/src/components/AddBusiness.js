@@ -15,7 +15,7 @@ class AddBusiness extends Component {
     zipCode: "",
     country: "",
     email: "",
-    // design: [],
+   // design: "", 
     picture: "",
     publicID: "",
     submitted: false,
@@ -74,7 +74,7 @@ class AddBusiness extends Component {
           zipCode: this.state.zipCode,
           country: this.state.country,
           email: this.state.email,
-          // design: this.state.design,
+          design: this.state.design,
           picture: this.state.picture,
           imagePublicID: this.state.publicID,
         })
