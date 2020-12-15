@@ -30,7 +30,7 @@ class Signup extends Component {
         });
       } else {
         this.props.setUser(data);
-        this.props.history.push("/add-bussiness");
+        this.props.history.push("/my-own-business");
       }
     });
   };
