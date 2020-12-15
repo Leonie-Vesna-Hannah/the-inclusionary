@@ -77,6 +77,39 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
+// app.js
+const User = require("./models/User");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: `${process.env.SERVER_URL}/api/auth/google/callback`,
+    },
+    (accessToken, refreshToken, profile, done) => {
+      // to see the structure of the data in received response:
+      console.log("Google account details:", profile);
+
+      User.findOne({ googleID: profile.id })
+        .then((user) => {
+          if (user) {
+            done(null, user);
+            return;
+          }
+
+          User.create({ googleID: profile.id })
+            .then((newUser) => {
+              done(null, newUser);
+            })
+            .catch((err) => done(err)); // closes User.create()
+        })
+        .catch((err) => done(err)); // closes User.findOne()
+    }
+  )
+);
+
 const businesses = require("./routes/businesses");
 app.use("/api/businesses", businesses);
 
