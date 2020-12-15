@@ -8,14 +8,13 @@ export default class CategoriesList extends Component {
   render() {
     return (
       <div>
-       <Link to={"/categories/arts&entertainment"}>Arts & Entertainment</Link> 
-       <Link to={"/categories/finance"}>Finance</Link> 
-       <Link to={"/categories/food&drinks"}>Food & Drinks</Link> 
-       <Link to={"/categories/health"}>Health</Link> 
-       <Link to={"/categories/hospitality"}>Hospitality</Link> 
-       <Link to={"/categories/media&design"}>Media & Design</Link>
-       <Link to={"/categories/retail"}>Retail</Link>
-       
+       <Link to={"/categories/Arts & Entertainment"}>Arts & Entertainment</Link> 
+       <Link to={"/categories/Finance"}>Finance</Link> 
+       <Link to={"/categories/Food & Drinks"}>Food & Drinks</Link> 
+       <Link to={"/categories/Health"}>Health</Link> 
+       <Link to={"/categories/Hospitality"}>Hospitality</Link> 
+       <Link to={"/categories/Media & Design"}>Media & Design</Link>
+       <Link to={"/categories/Retail"}>Retail</Link>  
       </div>
     )
   }

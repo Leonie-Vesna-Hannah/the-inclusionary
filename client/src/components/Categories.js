@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import CategoriesList from "./CategoriesList"; 
 
 
 export default class Categories extends Component {
@@ -33,8 +34,12 @@ export default class Categories extends Component {
 
     console.log(this.props)
   return (
+
+   
+
     <div>
       
+      <CategoriesList />
     
       {this.state.businesses.filter(businesses => businesses.category==this.props.match.params.category).map(filteredBusiness => (
       <li>
