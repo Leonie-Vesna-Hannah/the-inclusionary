@@ -201,7 +201,9 @@ export default class BusinessDetails extends Component {
           <button onClick={this.deleteBusiness}>Delete Business</button>
         )}
 
-        <button onClick={this.toggleEditForm}>Edit Business</button>
+        {allowedToDelete && (
+          <button onClick={this.toggleEditForm}>Edit Business</button>
+        )}
         {this.state.editForm && (
           <EditBusiness
             {...this.state}
