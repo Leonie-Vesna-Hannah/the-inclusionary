@@ -8,7 +8,7 @@ class AddBusiness extends Component {
     title: "",
     headOfBusiness: "",
     description: "",
-    // category: [],
+    category: "",
     street: "",
     houseNumber: "",
     city: "",
@@ -67,7 +67,7 @@ class AddBusiness extends Component {
           title: this.state.title,
           headOfBusiness: this.state.headOfBusiness,
           description: this.state.description,
-          // category: this.state.category,
+          category: this.state.category,
           street: this.state.street,
           houseNumber: this.state.houseNumber,
           city: this.state.city,
@@ -80,20 +80,20 @@ class AddBusiness extends Component {
         })
         .then(() => {
           // set the form to it's initial state (empty input fields)
-          this.setState({
-            title: "",
-            headOfBusiness: "",
-            description: "",
-            // category: [],
-            street: "",
-            houseNumber: null,
-            city: "",
-            zipCode: null,
-            email: "",
-            // design: [],
-            picture: "",
-            publicID: "",
-          });
+          // this.setState({
+          //   title: "",
+          //   headOfBusiness: "",
+          //   description: "",
+          //   // category: [],
+          //   street: "",
+          //   houseNumber: null,
+          //   city: "",
+          //   zipCode: null,
+          //   email: "",
+          //   // design: [],
+          //   picture: "",
+          //   publicID: "",
+          // });
           this.props.history.push("/my-own-business");
           // update the parent components state (in Projects) by calling getData()
           //this.props.getData();
@@ -139,6 +139,22 @@ class AddBusiness extends Component {
             value={this.state.description}
             onChange={this.handleChange}
           />
+          <br></br>
+
+          <select
+            name="category"
+            value={this.state.category}
+            onChange={this.handleChange}
+          >
+            <option value="Art & Entertainment">Art & Entertainment</option>
+            <option value="Finance">Finance</option>
+            <option value="Food & Drinks">Food & Drinks</option>
+            <option value="Health">Health</option>
+            <option value="Hospitality">Hospitality</option>
+            <option value="Media & Design">Media & Design</option>
+            <option value="Retail">Retail</option>
+          </select>
+
           <br></br>
 
           <label htmlFor="category">Category: </label>
@@ -217,6 +233,8 @@ class AddBusiness extends Component {
             id="picture"
             onChange={this.handleFileUpload}
           />
+          <br></br>
+
           <button type="submit">Add your Business</button>
         </form>
       </section>
