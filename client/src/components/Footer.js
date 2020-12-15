@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function Footer() {
-  return (
-    <div>
-      Made In Berlin etc.
-    </div>
-  )
+  return <div>Made In Berlin etc</div>;
 }
