@@ -11,7 +11,7 @@ export default class BusinessDetails extends Component {
     headOfBusiness: "",
     picture: "",
     description: "",
-    category: [],
+    category: "",
     street: "",
     houseNumber: "",
     city: "",
