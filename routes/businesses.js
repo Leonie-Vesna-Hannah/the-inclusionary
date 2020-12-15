@@ -14,7 +14,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
-// get owed businesses
+// get owned businesses
 router.get("/my-own-business", (req, res, next) => {
   Business.find({ owner: req.session.passport.user })
     .then((businesses) => {
