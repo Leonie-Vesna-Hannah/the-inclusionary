@@ -41,9 +41,11 @@ export default class Categories extends Component {
       
       <CategoriesList />
     
+
+    
       {this.state.businesses.filter(businesses => businesses.category==this.props.match.params.category).map(filteredBusiness => (
       <li>
-        {filteredBusiness.title}
+      <Link to={`/businesses/${filteredBusiness._id}`}> {filteredBusiness.title} </Link>
       </li>
     ))}
   
