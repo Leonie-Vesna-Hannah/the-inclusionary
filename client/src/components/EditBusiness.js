@@ -3,6 +3,7 @@ import axios from "axios";
 
 class EditBusiness extends Component {
   render() {
+    // console.log("props from edit business", this.props);
     return (
       <section>
         <h1>Edit business:</h1>

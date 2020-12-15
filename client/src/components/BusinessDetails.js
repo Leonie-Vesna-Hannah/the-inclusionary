@@ -19,6 +19,9 @@ export default class BusinessDetails extends Component {
     zipCode: "",
     country: "",
     email: "",
+    publicID: "",
+    submitted: false,
+    imageSelected: false,
   };
 
   getData = () => {
@@ -91,6 +94,8 @@ export default class BusinessDetails extends Component {
     const uploadData = new FormData();
     uploadData.append("picture", e.target.files[0]);
 
+    console.log("upload data", uploadData);
+
     service
       .handleUpload(uploadData)
       .then((response) => {
@@ -115,40 +120,51 @@ export default class BusinessDetails extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const id = this.props.match.params.id;
-    axios
-      .put(`/api/businesses/${id}`, {
-        title: this.state.title,
-        description: this.state.description,
-        picture: this.state.picture,
-        category: this.state.category,
-        street: this.state.street,
-        houseNumber: this.state.houseNumber,
-        city: this.state.city,
-        zipCode: this.state.zipCode,
-        country: this.state.country,
-        email: this.state.email,
-        // design: response.data.design,
-      })
-      .then((response) => {
-        this.setState({
-          business: response.data,
-          title: response.data.title,
-          description: response.data.description,
-          picture: response.data.picture,
-          category: response.data.category,
-          street: response.data.street,
-          houseNumber: response.data.houseNumber,
-          city: response.data.city,
-          zipCode: response.data.zipCode,
-          country: response.data.country,
-          email: response.data.email,
+    if (this.state.picture || !this.state.imageSelected) {
+      axios
+        .put(`/api/businesses/${id}`, {
+          title: this.state.title,
+          headOfBusiness: this.state.headOfBusiness,
+          description: this.state.description,
+          picture: this.state.picture,
+          category: this.state.category,
+          street: this.state.street,
+          houseNumber: this.state.houseNumber,
+          city: this.state.city,
+          zipCode: this.state.zipCode,
+          country: this.state.country,
+          email: this.state.email,
           // design: response.data.design,
-          editForm: false,
+          imagePublicID: this.state.publicID,
+        })
+        .then((response) => {
+          this.setState({
+            business: response.data,
+            title: response.data.title,
+            headOfBusiness: response.data.headOfBusiness,
+            description: response.data.description,
+            picture: response.data.picture,
+            category: response.data.category,
+            street: response.data.street,
+            houseNumber: response.data.houseNumber,
+            city: response.data.city,
+            zipCode: response.data.zipCode,
+            country: response.data.country,
+            email: response.data.email,
+            // design: response.data.design,
+            editForm: false,
+            publicID: response.data.publicID,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      })
-      .catch((err) => {
-        console.log(err);
+    } else {
+      // set a flag that the project got submitted
+      this.setState({
+        submitted: true,
       });
+    }
   };
 
   render() {
