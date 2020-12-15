@@ -12,6 +12,7 @@ import axios from "axios";
 import BusinessDetails from "./components/BusinessDetails";
 import Home from "./components/Home";
 import OwnBusiness from "./components/OwnBusiness";
+import Categories from "./components/Categories"; 
 
 class App extends Component {
   state = {
@@ -59,6 +60,10 @@ class App extends Component {
           path="/my-own-business"
           render={(props) => <OwnBusiness setUser={this.setUser} {...props} />}
         />
+
+      <Route exact path="/categories/:category"  render={(props) => (
+            <Categories  {...props} />
+          )} />
 
         <Footer />
       </div>
