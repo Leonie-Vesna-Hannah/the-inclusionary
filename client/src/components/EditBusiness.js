@@ -36,6 +36,22 @@ class EditBusiness extends Component {
           />
           <br></br>
 
+          <select
+            name="category"
+            value={this.props.category}
+            onChange={this.props.handleChange}
+          >
+            <option value="Art & Entertainment">Art & Entertainment</option>
+            <option value="Finance">Finance</option>
+            <option value="Food & Drinks">Food & Drinks</option>
+            <option value="Health">Health</option>
+            <option value="Hospitality">Hospitality</option>
+            <option value="Media & Design">Media & Design</option>
+            <option value="Retail">Retail</option>
+          </select>
+
+          <br></br>
+
           <label htmlFor="category">Category: </label>
           <input
             type="text"
