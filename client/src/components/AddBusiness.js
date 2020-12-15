@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
 import service from "../services/upload.js";
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 class AddBusiness extends Component {
+
+
   state = {
     user: this.props.user,
     title: "",
     headOfBusiness: "",
     description: "",
-    // category: [],
+    category: "", 
     street: "",
     houseNumber: "",
     city: "",
@@ -22,12 +26,19 @@ class AddBusiness extends Component {
     imageSelected: false,
   };
 
+  
+
   handleChange = (e) => {
     const { name, value } = e.target;
+
+    console.log(value); 
+
     this.setState({
       [name]: value,
     });
   };
+
+
 
   handleFileUpload = (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -61,13 +72,13 @@ class AddBusiness extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
-    if (this.state.picture || !this.state.imageSelected) {
+      if (this.state.picture || !this.state.imageSelected) {
       axios
         .post("/api/businesses", {
           title: this.state.title,
           headOfBusiness: this.state.headOfBusiness,
           description: this.state.description,
-          // category: this.state.category,
+          category: this.state.category,
           street: this.state.street,
           houseNumber: this.state.houseNumber,
           city: this.state.city,
@@ -80,35 +91,47 @@ class AddBusiness extends Component {
         })
         .then(() => {
           // set the form to it's initial state (empty input fields)
-          this.setState({
-            title: "",
-            headOfBusiness: "",
-            description: "",
-            // category: [],
-            street: "",
-            houseNumber: null,
-            city: "",
-            zipCode: null,
-            email: "",
-            // design: [],
-            picture: "",
-            publicID: "",
-          });
+          // this.setState({
+          //   title: "",
+          //   headOfBusiness: "",
+          //   description: "",
+          //   category: "",
+          //   street: "",
+          //   houseNumber: null,
+          //   city: "",
+          //   zipCode: null,
+          //   email: "",
+          //   // design: [],
+          //   picture: "",
+          // //   publicID: "",
+          // });
           this.props.history.push("/my-own-business");
           // update the parent components state (in Projects) by calling getData()
           //this.props.getData();
         })
         .catch((err) => console.log(err));
-    } else {
+     } else {
       // set a flag that the project got submitted
-      this.setState({
+     this.setState({
         submitted: true,
-      });
+    });
     }
   };
 
   render() {
-    console.log("props from add business", this.props);
+   // console.log("props from add business", this.props);
+    const options  = [
+      "Art & Entertainment",
+      "Finance",
+      "Food & Drinks",
+      "Health",
+      "Hospitality",
+      "Media & Design",
+      "Retail",
+    ];
+
+    console.log(this.state.category); 
+
     return (
       <section>
         <h1>Add your business:</h1>
@@ -141,15 +164,37 @@ class AddBusiness extends Component {
           />
           <br></br>
 
-          <label htmlFor="category">Category: </label>
-          <input
-            type="text"
-            id="category"
-            name="category"
-            value={this.state.category}
-            onChange={this.handleChange}
-          />
-          <br></br>
+          
+        
+           {/* <br></br>
+          <Dropdown options={options} 
+          onChange={this._onSelect} 
+          value={this.state.category[options]} 
+          placeholder="Choose Category" />
+         
+
+
+        <h5> Categories Try #2</h5><br></br>
+                 <select>
+                 {this.state.category.map(optn => (
+                     <option>{optn}</option>
+                 ))}
+                 </select> */}
+
+
+          <select name="category" value={this.state.category} onChange={this.handleChange}>   
+          
+            <option value="Art & Entertainment">Art & Entertainment</option>
+            <option value="Finance">Finance</option>
+            <option value="Food & Drinks">Food & Drinks</option>
+            <option value="Health">Health</option>
+            <option value="Hospitality">Hospitality</option>
+            <option value="Media & Design">Media & Design</option>
+            <option value="Retail">Retail</option>
+            
+          </select>
+        
+
 
           <label htmlFor="street">Street: </label>
           <input

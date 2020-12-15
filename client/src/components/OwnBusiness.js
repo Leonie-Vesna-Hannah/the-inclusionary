@@ -33,6 +33,8 @@ class OwnBusiness extends Component {
             })}
         </h2>
         <Link to="/add-business">Add Business</Link>
+
+        
       </section>
     );
   }
