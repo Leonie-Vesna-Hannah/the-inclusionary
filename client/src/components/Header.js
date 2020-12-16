@@ -14,11 +14,11 @@ function Header(props) {
     <section className="header-section">
       {props.user ? (
         <nav>
+        <Link to="/">Home</Link>
+          <Link to="/my-own-business">See your business profile</Link>
           <Link to="/" onClick={() => handleLogout(props)}>
             Log out
           </Link>
-          <Link to="/my-own-business">See your business profile</Link>
-          <Link to="/">Home</Link>
         </nav>
       ) : (
         <nav>

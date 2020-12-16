@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
+// import GoogleLogin from "react-google-login";
 
 // ReactDOM.render(
 //   <BrowserRouter>
@@ -13,11 +14,22 @@ import axios from "axios";
 //   document.getElementById("root")
 // );
 
+// const responseGoogle = (response) => {
+//   console.log(response);
+// };
+
 axios.get("/api/auth/loggedin").then((response) => {
   const user = response.data;
   ReactDOM.render(
     <BrowserRouter>
       <App user={user} />
+      {/* <GoogleLogin
+        clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+        buttonText="Login"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={"single_host_origin"}
+      /> */}
     </BrowserRouter>,
     document.getElementById("root")
   );

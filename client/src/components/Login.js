@@ -62,6 +62,9 @@ class Login extends Component {
           <button type="submit">Log in</button>
           {this.state.message && <p>{this.state.message}</p>}
         </form>
+        <div>
+          <a href="http://localhost:5555/api/auth/google">Log in With Google</a>
+        </div>
       </section>
     );
   }

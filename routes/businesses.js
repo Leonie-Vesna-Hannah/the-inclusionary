@@ -135,16 +135,3 @@ router.delete("/:id", (req, res, next) => {
 });
 
 module.exports = router;
-
-// router.post('/', (req, res) => {
-//   const title = req.body.title;
-//   const description = req.body.description;
-//   const owner = req.user._id;
-//   const tasks = [];
-
-//   Business.create({
-//     title,
-//     description,
-//     owner,
-//     tasks,
-//   })

@@ -13,6 +13,7 @@ import BusinessDetails from "./components/BusinessDetails";
 import Home from "./components/Home";
 import OwnBusiness from "./components/OwnBusiness";
 import SearchBar from "./components/SearchBar";
+import Categories from "./components/Categories"; 
 
 class App extends Component {
   state = {
@@ -20,16 +21,6 @@ class App extends Component {
     // user: "",
   };
 
-//Hannah's code
-  // function App() {
-  //   return (
-  //     <div className="App">
-  //       <SearchBar />
-  //     </div>
-  //   );
-  // };
-
-//Hannah's code END
 
   setUser = (user) => {
     this.setState({
@@ -71,6 +62,10 @@ class App extends Component {
           path="/my-own-business"
           render={(props) => <OwnBusiness setUser={this.setUser} {...props} />}
         />
+
+      <Route exact path="/categories/:category"  render={(props) => (
+            <Categories  {...props} />
+          )} />
 
         <Footer />
       </div>
