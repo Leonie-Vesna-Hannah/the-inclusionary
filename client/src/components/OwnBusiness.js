@@ -24,7 +24,7 @@ class OwnBusiness extends Component {
           {this.state.businesses &&
             this.state.businesses.map((business) => {
               return (
-                <div>
+                <div key={business._id}>
                   <Link to={`/businesses/${business._id}`}>
                     {business.title}
                   </Link>

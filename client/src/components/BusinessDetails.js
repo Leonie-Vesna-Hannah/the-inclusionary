@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import EditBusiness from "./EditBusiness";
 import service from "../services/upload.js";
+import Mapbox from "./Mapbox";
 
 export default class BusinessDetails extends Component {
   state = {
@@ -13,6 +14,7 @@ export default class BusinessDetails extends Component {
     picture: "",
     description: "",
     category: "",
+    // address: [],
     street: "",
     houseNumber: "",
     city: "",
@@ -22,6 +24,8 @@ export default class BusinessDetails extends Component {
     publicID: "",
     submitted: false,
     imageSelected: false,
+    lat: 52.52,
+    long: 13.4,
   };
 
   getData = () => {
@@ -30,7 +34,7 @@ export default class BusinessDetails extends Component {
     axios
       .get(`/api/businesses/${id}`)
       .then((response) => {
-        console.log("response from get data", response);
+        // console.log("response from get data", response);
         this.setState({
           business: response.data,
           title: response.data.title,
@@ -43,6 +47,13 @@ export default class BusinessDetails extends Component {
           city: response.data.city,
           zipCode: response.data.zipCode,
           country: response.data.country,
+          // address: [
+          //   response.data.street,
+          //   response.data.houseNumber,
+          //   response.data.city,
+          //   response.data.zipCode,
+          //   response.data.country,
+          // ],
           email: response.data.email,
           // design: response.data.design,
         });
@@ -59,8 +70,28 @@ export default class BusinessDetails extends Component {
       });
   };
 
+  latLngCall = () => {
+    const street = this.state.street.split(" ").join("%20");
+
+    axios
+      .get(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${street}%20${this.state.houseNumber}%20${this.state.zipCode}%20${this.state.city}.json?country=DE&access_token=pk.eyJ1IjoidmVzbmFtIiwiYSI6ImNraXEzMXk2NzBjczgyc3A5NzM1cnZ4eHUifQ.3lDAsenrxdP6Sq4WVSo43g`
+      )
+      .then((result) => {
+        console.log("result", result);
+        this.setState({
+          // center: (2) [13.423872, 52.486002]
+          lat: result.data.features[0].center[1],
+          long: result.data.features[0].center[0],
+        });
+      });
+  };
+
   componentDidMount = () => {
     this.getData();
+    setTimeout(() => {
+      this.latLngCall();
+    }, 2000);
   };
 
   deleteBusiness = () => {
@@ -212,6 +243,7 @@ export default class BusinessDetails extends Component {
             handleFileUpload={this.handleFileUpload}
           />
         )}
+        <Mapbox lat={this.state.lat} long={this.state.long} />
       </section>
     );
   }

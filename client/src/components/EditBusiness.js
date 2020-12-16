@@ -36,11 +36,21 @@ class EditBusiness extends Component {
           />
           <br></br>
 
+          <label htmlFor="category">Category: </label>
+          {/* <input
+            type="text"
+            id="category"
+            name="category"
+            value={this.state.category}
+            onChange={this.handleChange}
+          /> */}
           <select
+            id="category"
             name="category"
             value={this.props.category}
             onChange={this.props.handleChange}
           >
+            <option value="">select a category</option>
             <option value="Art & Entertainment">Art & Entertainment</option>
             <option value="Finance">Finance</option>
             <option value="Food & Drinks">Food & Drinks</option>
@@ -50,16 +60,6 @@ class EditBusiness extends Component {
             <option value="Retail">Retail</option>
           </select>
 
-          <br></br>
-
-          <label htmlFor="category">Category: </label>
-          <input
-            type="text"
-            id="category"
-            name="category"
-            value={this.props.category}
-            onChange={this.props.handleChange}
-          />
           <br></br>
 
           <label htmlFor="street">Street: </label>
