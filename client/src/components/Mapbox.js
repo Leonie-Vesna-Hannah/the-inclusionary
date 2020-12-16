@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactMapGL, { Marker } from "react-map-gl";
+//import ReactMapGL, { Marker } from "react-map-gl";
 
 import mapboxgl from "mapbox-gl";
 
