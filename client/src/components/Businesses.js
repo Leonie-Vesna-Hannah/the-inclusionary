@@ -28,12 +28,12 @@ export default class Businesses extends Component {
     this.getData();
   }
 
-  componentDidUpdate() {
+  // componentDidUpdate() {
     
-    // this.setState ({
-    //   businesses: filteredBusinesses,
-    // })
-  }
+  //   // this.setState ({
+  //   //   businesses: filteredBusinesses,
+  //   // })
+  // }
 
   mySearch = event => {
     this.setState({
