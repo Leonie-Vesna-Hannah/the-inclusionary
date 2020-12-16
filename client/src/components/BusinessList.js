@@ -13,7 +13,7 @@ export default function BusinessList(props) {
               <p>{business.city}</p>
               <img
                 src={business.picture}
-                alt="business"
+                alt="businessPicture"
                 style={{ width: "100px" }}
               ></img>
             </h2>
