@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import ReactMapGL, { Marker } from "react-map-gl";
+import ReactMapGL, { Marker } from "react-map-gl";
 
 import mapboxgl from "mapbox-gl";
 
@@ -17,43 +17,43 @@ class Mapbox extends Component {
     },
   };
 
-  // componentDidMount() {
-  //   const map = new mapboxgl.Map({
-  //     container: this.mapContainer,
-  //     style: "mapbox://styles/mapbox/streets-v11",
-  //     center: [this.state.lng, this.state.lat],
-  //     zoom: this.state.zoom,
-  //   });
+  componentDidMount() {
+    const map = new mapboxgl.Map({
+      container: this.mapContainer,
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [this.state.lng, this.state.lat],
+      zoom: this.state.zoom,
+    });
 
-  //   var geojson = {
-  //     type: "FeatureCollection",
-  //     features: [
-  //       {
-  //         type: "Feature",
-  //         geometry: {
-  //           type: "Point",
-  //           coordinates: [this.state.lng, this.state.lat],
-  //         },
-  //         properties: {
-  //           title: "Mapbox",
-  //           description: "Washington, D.C.",
-  //         },
-  //       },
-  //     ],
-  //   };
+    var geojson = {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [this.state.lng, this.state.lat],
+          },
+          properties: {
+            title: "Mapbox",
+            description: "Washington, D.C.",
+          },
+        },
+      ],
+    };
 
-  //   geojson.features.forEach((marker) => {
-  //     // create a HTML element for each feature
-  //     var el = document.createElement("div");
-  //     el.className = "marker";
+    geojson.features.forEach((marker) => {
+      // create a HTML element for each feature
+      var el = document.createElement("div");
+      el.className = "marker";
 
-  //     // make a marker for each feature and add to the map
-  //     new mapboxgl.Marker(el)
-  //       .setLngLat(marker.geometry.coordinates)
-  //       .setPopup(new mapboxgl.Popup({ offset: 25 }))
-  //       .addTo(map);
-  //   });
-  // }
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(new mapboxgl.Popup({ offset: 25 }))
+        .addTo(map);
+    });
+  }
 
   componentDidUpdate(prevProps) {
     if (prevProps.long !== this.props.long) {
@@ -62,21 +62,7 @@ class Mapbox extends Component {
   }
   render() {
     console.log("state from mapbox", this.state);
-    return (
-      <div>
-        {/* <Marker
-          coordinates={[this.state.lng, this.state.lat]}
-          anchor="bottom"
-        /> */}
-        {/* <div ref={(el) => (this.mapContainer = el)} /> */}
-        <ReactMapGL
-          {...this.state.viewport}
-          mapStyle="mapbox://styles/mapbox/streets-v11"
-          mapboxApiAccessToken="pk.eyJ1IjoidmVzbmFtIiwiYSI6ImNraXEzMXk2NzBjczgyc3A5NzM1cnZ4eHUifQ.3lDAsenrxdP6Sq4WVSo43g"
-          onViewportChange={(viewport) => this.setState({ viewport })}
-        ></ReactMapGL>
-      </div>
-    );
+    return <div ref={(el) => (this.mapContainer = el)} />;
   }
 }
 

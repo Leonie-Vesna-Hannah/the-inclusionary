@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function BusinessList(props) {
   return (
-    <div>
+    <section className="business-list">
       {props.businesses.map((business) => {
         return (
-          <div key={business._id}>
+          <div className="business-list-grid-container" key={business._id}>
             <h2>
               <Link to={`/businesses/${business._id}`}>{business.title}</Link>
               <p>{business.headOfBusiness}</p>
@@ -20,6 +20,6 @@ export default function BusinessList(props) {
           </div>
         );
       })}
-    </div>
+    </section>
   );
 }
