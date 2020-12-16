@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+body 
+{
+  background-color:whitesmoke;
+  
+}
+
+div {
+    size: 70px; 
+
+}
+
+a {
+  color: #B8336A;
+  style: no-style; 
+  text-decoration: none;  
+}
