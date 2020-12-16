@@ -12,6 +12,7 @@ import axios from "axios";
 import BusinessDetails from "./components/BusinessDetails";
 import Home from "./components/Home";
 import OwnBusiness from "./components/OwnBusiness";
+//import SearchBar from "./components/SearchBar";
 import Categories from "./components/Categories"; 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
     user: this.props.user,
     // user: "",
   };
+
 
   setUser = (user) => {
     this.setState({
