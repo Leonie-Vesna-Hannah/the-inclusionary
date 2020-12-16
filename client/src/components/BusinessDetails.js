@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import EditBusiness from "./EditBusiness";
 import service from "../services/upload.js";
-import Mapbox from "./Mapbox";
+import Mapbox from "./mapbox/Mapbox";
 
 export default class BusinessDetails extends Component {
   state = {
