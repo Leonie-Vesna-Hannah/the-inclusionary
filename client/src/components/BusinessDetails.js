@@ -55,11 +55,11 @@ export default class BusinessDetails extends Component {
         // console.log(err.response);
         console.log(err);
 
-        if (err.response.status === 404) {
-          this.setState({
-            error: "Sorry - Business Not found",
-          });
-        }
+        // if (err.response.status === 404) {
+        //   this.setState({
+        //     error: "Sorry - Business Not found",
+        //   });
+        // }
       });
   };
 
@@ -72,6 +72,7 @@ export default class BusinessDetails extends Component {
       )
       .then((result) => {
         console.log("result", result);
+        console.log("long", result.data.features[0].center[1]);
         this.setState({
           // center: (2) [13.423872, 52.486002]
           lat: result.data.features[0].center[1],
