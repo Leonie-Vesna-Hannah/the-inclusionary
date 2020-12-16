@@ -11,7 +11,7 @@ const businessSchema = new Schema({
       "Art & Entertainment",
       "Finance",
       "Food & Drinks",
-      "Health",
+      "Health & Beauty",
       "Hospitality",
       "Media & Design",
       "Retail",
