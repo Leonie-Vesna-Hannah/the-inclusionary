@@ -5,26 +5,35 @@ import styles from "./BusinessList.module.css";
 export default function BusinessList(props) {
   return (
     <section className={styles.businessList}>
-      {props.businesses.map((business) => {
-        return (
-          <div key={business._id} className={styles.businessDetailsItem}>
-            <figure className={styles.imgWrapper}>
-              <img src={business.picture} alt="businessPicture"></img>
-            </figure>
-            <div className={styles.businessCardBottom}>
-              <Link to={`/businesses/${business._id}`}>
-                {" "}
-                <h2 className={styles.businessName}>{business.title}</h2>
-              </Link>
+      {props.businesses &&
+        props.businesses.map((business) => {
+          return (
+            <div key={business._id} className={styles.businessDetailsItem}>
+              <figure className={styles.imgWrapper}>
+                <img src={business.picture} alt="businessPicture"></img>
+              </figure>
+              <div className={styles.businessCardBottom}>
+                <h2 className={styles.businessName}>
+                  <Link to={`/businesses/${business._id}`}>
+                    {" "}
+                    {business.title}
+                  </Link>
+                </h2>
 
-              <p>{business.category}</p>
+                <span className={styles.businessCategory}>
+                  {business.category}
+                </span>
+                {business.headOfBusiness && (
+                  <span className={styles.businessHead}>
+                    Head of Business: {business.headOfBusiness}
+                  </span>
+                )}
 
-              <p>{business.headOfBusiness}</p>
-              <p>{business.city}</p>
+                <p className={styles.businessCity}>{business.city}</p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </section>
   );
 }

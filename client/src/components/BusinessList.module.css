@@ -1,6 +1,6 @@
 .businessList {
   display: grid;
-  grid-gap: 32px;
+  grid-gap: 40px;
   max-width: 1024px;
   margin: 0 auto;
   padding: 22px;
@@ -9,17 +9,21 @@
 }
 
 .businessDetailsItem {
-  max-height: 100%;
-  background-color: #292a33;
-  /* border-radius: 8px; */
+  /* max-height: 100%; */
+  box-shadow: 1px 1px 20px rgba(216, 215, 215, 0.74); /* border-radius: 8px; */
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
-  height: 100%;
+  /* height: 100%; */
+}
+
+.businessDetailsItem:hover {
+  box-shadow: 5px 3px 20px rgba(122, 121, 121, 0.74);
+  transition: ease-in-out 0.4s;
 }
 
 .imgWrapper {
-  height: 250px;
+  height: 280px;
   margin: 0;
 }
 
@@ -36,8 +40,23 @@
 }
 
 .businessName {
-  margin-top: 0.1em;
-  margin-bottom: 0.3em;
   font-size: 1.5em;
-  min-height: 5rem;
+  margin: 0 0 5px;
+  /* min-height: 5rem; */
+}
+
+.businessCategory {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-weight: 100;
+}
+
+.businessHead {
+  font-weight: bolder;
+  font-size: 1em;
+  margin-bottom: 3px;
+}
+
+.businessCity {
+  margin: 0;
 }

@@ -178,7 +178,7 @@ class AddBusiness extends Component {
 
           <label htmlFor="houseNumber">House number: </label>
           <input
-            type="number"
+            type="text"
             id="houseNumber"
             name="houseNumber"
             value={this.state.houseNumber}
@@ -198,7 +198,7 @@ class AddBusiness extends Component {
 
           <label htmlFor="zipCode">ZIP Code: </label>
           <input
-            type="number"
+            type="text"
             id="zipCode"
             name="zipCode"
             value={this.state.zipCode}
