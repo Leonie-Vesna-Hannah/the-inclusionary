@@ -25,7 +25,7 @@ export default function BusinessList(props) {
                 </span>
                 {business.headOfBusiness && (
                   <span className={styles.businessHead}>
-                    Head of Business: {business.headOfBusiness}
+                    Head of Business: <strong>{business.headOfBusiness}</strong>
                   </span>
                 )}
 
