@@ -212,6 +212,7 @@ export default class BusinessDetails extends Component {
           src={this.state.business.picture}
           alt="business"
         />
+ 
         <p>{this.state.business.description}</p>
         <p>{this.state.business.category}</p>
         <p>{this.state.business.street}</p>
