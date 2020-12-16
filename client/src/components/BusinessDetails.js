@@ -47,13 +47,6 @@ export default class BusinessDetails extends Component {
           city: response.data.city,
           zipCode: response.data.zipCode,
           country: response.data.country,
-          // address: [
-          //   response.data.street,
-          //   response.data.houseNumber,
-          //   response.data.city,
-          //   response.data.zipCode,
-          //   response.data.country,
-          // ],
           email: response.data.email,
           // design: response.data.design,
         });

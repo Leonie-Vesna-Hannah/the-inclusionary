@@ -12,13 +12,15 @@ import axios from "axios";
 import BusinessDetails from "./components/BusinessDetails";
 import Home from "./components/Home";
 import OwnBusiness from "./components/OwnBusiness";
-import Categories from "./components/Categories";
+//import SearchBar from "./components/SearchBar";
+import Categories from "./components/Categories"; 
 
 class App extends Component {
   state = {
     user: this.props.user,
     // user: "",
   };
+
 
   setUser = (user) => {
     this.setState({
