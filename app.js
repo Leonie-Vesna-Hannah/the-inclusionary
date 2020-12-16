@@ -10,7 +10,9 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/the-inclusionary", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/the-inclusionary", {
+    useNewUrlParser: true,
+  })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -92,20 +94,21 @@ passport.use(
       // to see the structure of the data in received response:
       console.log("Google account details:", profile);
 
-      User.findOne({ googleID: profile.id })
-        .then((user) => {
-          if (user) {
-            done(null, user);
-            return;
-          }
-
-          User.create({ googleID: profile.id })
-            .then((newUser) => {
-              done(null, newUser);
-            })
-            .catch((err) => done(err)); // closes User.create()
-        })
-        .catch((err) => done(err)); // closes User.findOne()
+      User.findOne({ googleId: profile.id }).then((found) => {
+        console.log(found, "FOUNDDDD");
+        if (found) {
+          console.log("FOUND AN EXISTING USER", found);
+          done(null, found); // Found is referring to the user
+        } else {
+          User.create({
+            username: profile.emails[0].value,
+            // username: profile.displayName,
+            googleId: profile.id,
+          }).then((createdUser) => {
+            done(null, createdUser);
+          });
+        }
+      });
     }
   )
 );

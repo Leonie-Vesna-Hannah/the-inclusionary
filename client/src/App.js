@@ -63,9 +63,11 @@ class App extends Component {
           render={(props) => <OwnBusiness setUser={this.setUser} {...props} />}
         />
 
-      <Route exact path="/categories/:category"  render={(props) => (
-            <Categories  {...props} />
-          )} />
+        <Route
+          exact
+          path="/categories/:category"
+          render={(props) => <Categories {...props} />}
+        />
 
         <Footer />
       </div>

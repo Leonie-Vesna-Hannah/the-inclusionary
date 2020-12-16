@@ -29,32 +29,30 @@ export default class Businesses extends Component {
   }
 
   // componentDidUpdate() {
-    
+
   //   // this.setState ({
   //   //   businesses: filteredBusinesses,
   //   // })
   // }
 
-  mySearch = event => {
+  mySearch = (event) => {
     this.setState({
       search: event.target.value,
-    })
-  }
+    });
+  };
 
   render() {
-    const filteredBusinesses = this.state.businesses.filter(business => {
-      return business.title.includes(this.state.search)
+    const filteredBusinesses = this.state.businesses.filter((business) => {
+      return business.title.includes(this.state.search);
     });
-        console.log(filteredBusinesses);
+    console.log(filteredBusinesses);
 
     return (
       <div className="businesses-container">
-        <SearchBar mySearch = { this.mySearch }/>
+        <SearchBar mySearch={this.mySearch} />
         {/* <AddBusiness getData={this.getData} /> */}
         <BusinessList businesses={filteredBusinesses} />
       </div>
     );
   }
 }
-
-

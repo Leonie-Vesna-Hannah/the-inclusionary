@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import CategoriesList from "./CategoriesList"; 
-
+import CategoriesList from "./CategoriesList";
 
 export default class Categories extends Component {
-  
   state = {
     businesses: [],
   };
@@ -29,29 +27,27 @@ export default class Categories extends Component {
   }
 
   render() {
+    // console.log(this.state.businesses);
 
-    console.log(this.state.businesses); 
+    console.log(this.props);
+    return (
+      <div>
+        <CategoriesList />
 
-    console.log(this.props)
-  return (
-
-   
-
-    <div>
-      
-      <CategoriesList />
-    
-
-    
-      {this.state.businesses.filter(businesses => businesses.category==this.props.match.params.category).map(filteredBusiness => (
-      <li>
-      <Link to={`/businesses/${filteredBusiness._id}`}> {filteredBusiness.title} </Link>
-      </li>
-    ))}
-  
- 
-    </div>
-
-);
-}
+        {this.state.businesses
+          .filter(
+            (businesses) =>
+              businesses.category === this.props.match.params.category
+          )
+          .map((filteredBusiness) => (
+            <div>
+              <Link to={`/businesses/${filteredBusiness._id}`}>
+                {" "}
+                {filteredBusiness.title}{" "}
+              </Link>
+            </div>
+          ))}
+      </div>
+    );
+  }
 }
