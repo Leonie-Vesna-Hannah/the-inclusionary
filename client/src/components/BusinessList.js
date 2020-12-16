@@ -1,22 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from "./BusinessList.module.css";
 
 export default function BusinessList(props) {
   return (
-    <section className="business-list">
+    <section className={styles.businessList}>
       {props.businesses.map((business) => {
         return (
-          <div className="business-list-grid-container" key={business._id}>
-            <h2>
-              <Link to={`/businesses/${business._id}`}>{business.title}</Link>
+          <div key={business._id} className={styles.businessDetailsItem}>
+            <figure className={styles.imgWrapper}>
+              <img src={business.picture} alt="businessPicture"></img>
+            </figure>
+            <div className={styles.businessCardBottom}>
+              <Link to={`/businesses/${business._id}`}>
+                {" "}
+                <h2 className={styles.businessName}>{business.title}</h2>
+              </Link>
+
+              <p>{business.category}</p>
+
               <p>{business.headOfBusiness}</p>
               <p>{business.city}</p>
-              <img
-                src={business.picture}
-                alt="businessPicture"
-                style={{ width: "100px" }}
-              ></img>
-            </h2>
+            </div>
           </div>
         );
       })}

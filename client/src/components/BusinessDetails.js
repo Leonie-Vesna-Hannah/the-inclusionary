@@ -3,6 +3,7 @@ import axios from "axios";
 import EditBusiness from "./EditBusiness";
 import service from "../services/upload.js";
 import Mapbox from "./mapbox/Mapbox";
+import styles from "./BusinessDetails.module.css";
 
 export default class BusinessDetails extends Component {
   state = {
@@ -205,14 +206,10 @@ export default class BusinessDetails extends Component {
     if (user && user._id === owner) allowedToDelete = true;
 
     return (
-      <section className="business-details-section">
+      <section>
+        <img src={this.state.business.picture} alt="business" />
         <h1>{this.state.business.title}</h1>
         <p>{this.state.business.headOfBusiness}</p>
-        <img
-          style={{ width: "100px" }}
-          src={this.state.business.picture}
-          alt="business"
-        />
 
         <p>{this.state.business.description}</p>
         <p>{this.state.business.category}</p>

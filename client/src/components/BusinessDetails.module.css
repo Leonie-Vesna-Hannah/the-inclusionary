@@ -1,0 +1,11 @@
+.businessDetailsItem {
+  max-height: 100%;
+  background-color: #292a33;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+

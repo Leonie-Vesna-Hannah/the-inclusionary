@@ -1,0 +1,43 @@
+.businessList {
+  display: grid;
+  grid-gap: 32px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 22px;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+}
+
+.businessDetailsItem {
+  max-height: 100%;
+  background-color: #292a33;
+  /* border-radius: 8px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.imgWrapper {
+  height: 250px;
+  margin: 0;
+}
+
+.imgWrapper img {
+  width: 100%;
+  /* border-top-left-radius: 8px;
+  border-top-right-radius: 8px; */
+}
+
+.businessCardBottom {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.businessName {
+  margin-top: 0.1em;
+  margin-bottom: 0.3em;
+  font-size: 1.5em;
+  min-height: 5rem;
+}
