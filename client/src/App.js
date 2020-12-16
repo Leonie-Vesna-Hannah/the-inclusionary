@@ -12,12 +12,24 @@ import axios from "axios";
 import BusinessDetails from "./components/BusinessDetails";
 import Home from "./components/Home";
 import OwnBusiness from "./components/OwnBusiness";
+import SearchBar from "./components/SearchBar";
 
 class App extends Component {
   state = {
     user: this.props.user,
     // user: "",
   };
+
+//Hannah's code
+  // function App() {
+  //   return (
+  //     <div className="App">
+  //       <SearchBar />
+  //     </div>
+  //   );
+  // };
+
+//Hannah's code END
 
   setUser = (user) => {
     this.setState({
