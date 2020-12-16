@@ -66,3 +66,13 @@ a {
   /* style: no-style; */
   text-decoration: none;
 }
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+input {
+  outline: none;
+  color: #424d5d;
+}
