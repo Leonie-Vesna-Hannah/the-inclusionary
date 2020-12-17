@@ -13,7 +13,7 @@ class Mapbox extends Component {
       height: "100vh",
       lng: this.props.long,
       lat: this.props.lat,
-      zoom: 12,
+      zoom: 20,
     },
   };
 
