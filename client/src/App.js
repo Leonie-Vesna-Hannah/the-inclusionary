@@ -14,6 +14,7 @@ import Home from "./components/Home";
 import OwnBusiness from "./components/OwnBusiness";
 //import SearchBar from "./components/SearchBar";
 import Categories from "./components/Categories"; 
+import Credits from "./components/Credits"; 
 
 class App extends Component {
   state = {
@@ -68,6 +69,10 @@ class App extends Component {
           path="/categories/:category"
           render={(props) => <Categories {...props} />}
         />
+<Route
+          exact
+          path="/Credits"
+          component={Credits} />
 
 
 
