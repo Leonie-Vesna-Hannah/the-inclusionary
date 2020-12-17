@@ -241,8 +241,8 @@ export default class BusinessDetails extends Component {
           <button onClick={this.toggleEditForm}>Edit Business</button>
         )}
 
-        
-          <button onClick={this.backgroundColor}>Add to Favorite</button>
+        <br></br>
+          <button onClick={this.backgroundColor}>Go To Website</button>
         
         
 
