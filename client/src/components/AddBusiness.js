@@ -165,7 +165,7 @@ class AddBusiness extends Component {
             >
               <option value="">select a category</option>
               <option value="Art & Entertainment">Art & Entertainment</option>
-              <option value="Finance">Finance</option>
+              <option value="Finance">Tech & Finance</option>
               <option value="Food & Drinks">Food & Drinks</option>
               <option value="Health & Beauty">Health & Beauty</option>
               <option value="Hospitality">Hospitality</option>

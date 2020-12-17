@@ -11,8 +11,26 @@
   justify-items: space-between;
 }
 
-.headerButton {
+/* .headerButton {
   background-color: #696aa3;
   display: flex;
   justify-items: space-between;
+
+  background-color: #ACACDE; 
+  padding: 20px; 
+display: flex; 
+justify-content: flex-end;
+margin-bottom: 20px; 
+} */
+
+.linkTo {
+  color: white; 
+  padding: 20px; 
+  font-size: 25px; 
+  text-transform: uppercase;
+  font-weight: 600; 
+
 }
+
+
+

@@ -5,6 +5,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import AddBusiness from "./AddBusiness";
+import styles from "./OwnBusiness.module.css";
+
+
 class OwnBusiness extends Component {
   state = {
     businesses: [],
@@ -19,7 +22,8 @@ class OwnBusiness extends Component {
   }
   render() {
     return (
-      <section>
+      <section className={styles.categories}>
+    
         <h2>
           {this.state.businesses &&
             this.state.businesses.map((business) => {
@@ -32,7 +36,7 @@ class OwnBusiness extends Component {
               );
             })}
         </h2>
-        <Link to="/add-business">Add Business</Link>
+         <Link to="/add-business"> <button>Add Business</button></Link> 
       </section>
     );
   }
