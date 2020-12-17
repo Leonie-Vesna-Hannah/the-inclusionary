@@ -5,7 +5,15 @@
   padding-right: 100px; 
   padding-bottom: 50px; 
   font-size: 18px; 
-  
 }
 
 
+.welcomeButton {
+  padding-top: -500px; 
+  text-decoration: none; 
+  font-size: 20px; 
+  style: none; 
+}
+
+.welcome 
+{color: #B8336A}

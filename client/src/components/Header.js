@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../services/auth";
 import styles from "./Header.module.css";
+import ThemeApp from "./ThemeApp.js";
 
 const handleLogout = (props) => {
   // console.log(props);
@@ -13,6 +14,7 @@ const handleLogout = (props) => {
 function Header(props) {
   return (
     <section className={styles.headerSection}>
+    <ThemeApp /> 
       {props.user ? (
         <nav>
         <Link className={styles.linkTo} to="/" >Home</Link>
@@ -28,6 +30,7 @@ function Header(props) {
           <Link className={styles.linkTo} to="/login">Login</Link>
         </nav>
       )}
+   
    
     </section>
   );

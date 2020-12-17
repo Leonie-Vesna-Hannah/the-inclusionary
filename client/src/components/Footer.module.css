@@ -1,0 +1,19 @@
+.footerSection {
+  background-color: #ACACDE; 
+  padding: 20px; 
+display: flex; 
+justify-content: center;
+margin-bottom: 20px; 
+color: white; 
+}
+
+.linkTo {
+  color: white; 
+  padding: 20px; 
+  font-size: 25px; 
+  text-transform: uppercase;
+  font-weight: 600; 
+
+}
+
+

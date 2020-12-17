@@ -4,6 +4,7 @@ import BusinessList from "./BusinessList";
 import AddBusiness from "./AddBusiness";
 import SearchBar from "./SearchBar";
 import styles from "./Businesses.module.css";
+import { Link } from "react-router-dom";
 
 export default class Businesses extends Component {
   state = {
@@ -55,18 +56,23 @@ export default class Businesses extends Component {
       
         <div className={styles.welcomeBox}>
         <div className={styles.welcomeText}>
-         <h3> Welcome 🙌</h3> <br></br>
-      <paragraph> You are looking for places and businesses led by women*! 
-      Wonderful, you are aware of the gender gap! <br></br>
+        <h3 className={styles.welcome}> WELCOME 🙌</h3>
+      
+      <Link to="/Credits">
+      <button class={styles.welcomeButton}> <paragraph>
+      
+        You are looking for places and businesses led by women*! 
+      <br></br> Wonderful, you are aware of the gender gap! <br></br>
       Women fight bravely and powerful a continuous struggle - 
-      both in society in general and in their places of work. <br></br>
+      both in society <br></br> in general and in their places of work. <br></br>
       <b> There is a lot of talk, here you can take action! </b><br></br>
       The road to equality lies ahead, look at our range of businesses,   
       they are all led by women*!<br></br>
       Visit their sites, and support them by going there!
-      </paragraph>
+      </paragraph></button> </Link>
       </div>
       </div>
+      
       
 
         <BusinessList businesses={filteredBusinesses} />
