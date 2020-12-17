@@ -32,7 +32,7 @@ export default class Categories extends Component {
     console.log(this.props);
     return (
       <div>
-        {/* <CategoriesList /> */}
+       <CategoriesList /> 
 
         {this.state.businesses
           .filter(
