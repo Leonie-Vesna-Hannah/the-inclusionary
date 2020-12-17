@@ -4,7 +4,7 @@ const themes = {
     'color': '#000',
     'font-family': "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
   },
-  pink: {
+  rose: {
     'background-color': '#FFE8E1',
     'color': '#a50b0b',
     'font-family': "'Courier New', Courier, monospace"
@@ -12,8 +12,9 @@ const themes = {
   black: {
     'background-color': '#000',
     'color': '#fff',
+    'font-family': "'Courier New', Courier, monospace"
   },
-  blue: {
+  aqua: {
     'background-color': '#E5FCFF',
     'color': '#847d7d',
     'font-family': 'Verdana, Geneva, Tahoma, sans-serif'
