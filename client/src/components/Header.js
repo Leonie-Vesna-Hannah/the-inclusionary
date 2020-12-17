@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../services/auth";
+import styles from "./Header.module.css";
 
 const handleLogout = (props) => {
   // console.log(props);
@@ -11,10 +12,10 @@ const handleLogout = (props) => {
 
 function Header(props) {
   return (
-    <section className="header-section">
+    <section className={styles.headerSection}>
       {props.user ? (
-        <nav>
-        <Link to="/">Home</Link>
+        <nav className={styles.headerNavigation}>
+          <Link className={styles.headerButton} to="/">Home</Link>
           <Link to="/my-own-business">See your business profile</Link>
           <Link to="/" onClick={() => handleLogout(props)}>
             Log out
