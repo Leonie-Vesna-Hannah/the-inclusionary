@@ -1,27 +1,10 @@
 .headerSection {
-  width: 100%;
-  height: 60px;
-  background-color: #d6cad4;
- 
-}
-
-.headerNavigation {
-  background-color: #b0c8c9;
-  display: flex;
-  justify-items: space-between;
-}
-
-/* .headerButton {
-  background-color: #696aa3;
-  display: flex;
-  justify-items: space-between;
-
   background-color: #ACACDE; 
   padding: 20px; 
 display: flex; 
 justify-content: flex-end;
 margin-bottom: 20px; 
-} */
+}
 
 .linkTo {
   color: white; 
@@ -31,6 +14,3 @@ margin-bottom: 20px;
   font-weight: 600; 
 
 }
-
-
-
