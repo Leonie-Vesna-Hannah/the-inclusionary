@@ -15,7 +15,7 @@ export default class CategoriesList extends Component {
         </button>
         
         <button>
-        <Link to={"/categories/Tech & Finance"}> <h3> Tech & Finance </h3></Link>
+        <Link to={"/categories/Finance"}> <h3> Tech & Finance </h3></Link>
         </button>
 
         <button>

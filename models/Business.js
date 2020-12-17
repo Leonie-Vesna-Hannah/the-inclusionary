@@ -9,7 +9,7 @@ const businessSchema = new Schema({
     type: String,
     enum: [
       "Art & Entertainment",
-      "Tech & Finance",
+      "Finance",
       "Food & Drinks",
       "Health & Beauty",
       "Hospitality",

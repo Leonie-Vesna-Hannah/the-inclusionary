@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import CategoriesList from "./CategoriesList";
+import styles from "./Categories.module.css";
 
 export default class Categories extends Component {
   state = {
@@ -40,11 +41,24 @@ export default class Categories extends Component {
               businesses.category === this.props.match.params.category
           )
           .map((filteredBusiness) => (
-            <div>
+            <div className={styles.categories}>
               <Link to={`/businesses/${filteredBusiness._id}`}>
                 {" "}
                 {filteredBusiness.title}{" "}
+                <figure className={styles.imgWrapper}>
+                <img src={filteredBusiness.picture} alt="businessPicture"></img>
+              </figure>
+              
               </Link>
+              
+              
+
+
+
+
+
+
+
             </div>
           ))}
       </div>
