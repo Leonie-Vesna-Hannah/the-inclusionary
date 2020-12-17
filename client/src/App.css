@@ -1,5 +1,21 @@
-.App {
-  text-align: center;
+/* .App {
+  box-sizing: border-box;
+  margin: 0;
+} */
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Oswald&family=Raleway&family=Roboto&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-family: "Roboto", sans-serif; */
+  font-family: "Raleway", sans-serif;
+  color: #424d5d;
 }
 
 .App-logo {
@@ -37,19 +53,27 @@
   }
 }
 
-body 
-{
-  background-color:whitesmoke;
-  
+body {
+  background-color: whitesmoke;
 }
 
-div {
-    size: 70px; 
-
-}
+/* div {
+  size: 70px;
+} */
 
 a {
-  color: #B8336A;
-  style: no-style; 
-  text-decoration: none;  
+  color: #b8336a;
+  /* style: no-style; */
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+input,
+textarea {
+  outline: none;
+  color: #424d5d;
 }

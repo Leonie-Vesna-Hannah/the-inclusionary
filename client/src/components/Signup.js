@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import { signup } from "../services/auth";
+import styles from "./Signup.module.css";
 
 class Signup extends Component {
   state = {
@@ -38,25 +39,29 @@ class Signup extends Component {
   render() {
     // console.log("props--------signup", this.props);
     return (
-      <section className="signup-login-form">
+      <section className={styles.signupWrapper}>
         <h1>You can create your business profile here:</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          ></input>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          ></input>
+        <form onSubmit={this.handleSubmit} className={styles.signupForm}>
+          <div className={styles.signupUsername}>
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+            ></input>
+          </div>
+          <div className={styles.signupPass}>
+            <label htmlFor="password">Password:</label>
+            <input
+              type="text"
+              name="password"
+              id="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            ></input>
+          </div>
           <button type="submit">Signup</button>
           {this.state.message && <p>{this.state.message}</p>}
         </form>

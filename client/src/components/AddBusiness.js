@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import service from "../services/upload.js";
+import styles from "./AddBusiness.module.css";
 
 class AddBusiness extends Component {
   state = {
@@ -110,131 +111,139 @@ class AddBusiness extends Component {
   render() {
     console.log("props from add business", this.props);
     return (
-      <section>
-        <h1>Add your business:</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="title">Title: </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <label htmlFor="headOfBusiness">Head of business: </label>
-          <input
-            type="text"
-            id="headOfBusiness"
-            name="headOfBusiness"
-            value={this.state.headOfBusiness}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <label htmlFor="description">Description: </label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <label htmlFor="category">Category: </label>
-          {/* <input
+      <section className={styles.addBusinessWrapper}>
+        <h2>Add your business:</h2>
+        <form onSubmit={this.handleSubmit} className={styles.addBusinessForm}>
+          <div className={styles.formContent}>
+            <label htmlFor="title">Title: </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={this.state.title}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="headOfBusiness">Head of business: </label>
+            <input
+              type="text"
+              id="headOfBusiness"
+              name="headOfBusiness"
+              value={this.state.headOfBusiness}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="description">Description: </label>
+            <textarea
+              cols="30"
+              rows="8"
+              type="text"
+              id="description"
+              name="description"
+              placeholder="Describe your business/service here"
+              value={this.state.description}
+              onChange={this.handleChange}
+            ></textarea>
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="category">Category: </label>
+            {/* <input
             type="text"
             id="category"
             name="category"
             value={this.state.category}
             onChange={this.handleChange}
           /> */}
-          <select
-            id="category"
-            name="category"
-            value={this.state.category}
-            onChange={this.handleChange}
-          >
-            <option value="">select a category</option>
-            <option value="Art & Entertainment">Art & Entertainment</option>
-            <option value="Finance">Finance</option>
-            <option value="Food & Drinks">Food & Drinks</option>
-            <option value="Health & Beauty">Health & Beauty</option>
-            <option value="Hospitality">Hospitality</option>
-            <option value="Media & Design">Media & Design</option>
-            <option value="Retail">Retail</option>
-          </select>
+            <select
+              className={styles.formSelect}
+              id="category"
+              name="category"
+              value={this.state.category}
+              onChange={this.handleChange}
+            >
+              <option value="">select a category</option>
+              <option value="Art & Entertainment">Art & Entertainment</option>
+              <option value="Finance">Finance</option>
+              <option value="Food & Drinks">Food & Drinks</option>
+              <option value="Health & Beauty">Health & Beauty</option>
+              <option value="Hospitality">Hospitality</option>
+              <option value="Media & Design">Media & Design</option>
+              <option value="Retail">Retail</option>
+            </select>
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="street">Street: </label>
+            <input
+              type="text"
+              id="street"
+              name="street"
+              value={this.state.street}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="houseNumber">House number: </label>
+            <input
+              type="text"
+              id="houseNumber"
+              name="houseNumber"
+              value={this.state.houseNumber}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="city">City: </label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              value={this.state.city}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="zipCode">ZIP Code: </label>
+            <input
+              type="text"
+              id="zipCode"
+              name="zipCode"
+              value={this.state.zipCode}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="country">Country: </label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              value={this.state.country}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="email">E-mail: </label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className={styles.formContent}>
+            <label htmlFor="picture">Image:</label>
+            <input
+              type="file"
+              name="picture"
+              id="picture"
+              onChange={this.handleFileUpload}
+            />
+          </div>
 
-          <br></br>
-
-          <label htmlFor="street">Street: </label>
-          <input
-            type="text"
-            id="street"
-            name="street"
-            value={this.state.street}
-            onChange={this.handleChange}
-          />
-          <br></br>
-
-          <label htmlFor="houseNumber">House number: </label>
-          <input
-            type="number"
-            id="houseNumber"
-            name="houseNumber"
-            value={this.state.houseNumber}
-            onChange={this.handleChange}
-          />
-          <br></br>
-
-          <label htmlFor="city">City: </label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={this.state.city}
-            onChange={this.handleChange}
-          />
-          <br></br>
-
-          <label htmlFor="zipCode">ZIP Code: </label>
-          <input
-            type="number"
-            id="zipCode"
-            name="zipCode"
-            value={this.state.zipCode}
-            onChange={this.handleChange}
-          />
-          <br></br>
-
-          <label htmlFor="country">Country: </label>
-          <input
-            type="text"
-            id="country"
-            name="country"
-            value={this.state.country}
-            onChange={this.handleChange}
-          />
-          <br></br>
-
-          <label htmlFor="email">E-mail: </label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <label htmlFor="picture">Image:</label>
-          <input
-            type="file"
-            name="picture"
-            id="picture"
-            onChange={this.handleFileUpload}
-          />
-          <br></br>
-
-          <button type="submit">Add your Business</button>
+          <button type="submit">Submit</button>
         </form>
       </section>
     );
