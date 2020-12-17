@@ -194,6 +194,9 @@ export default class BusinessDetails extends Component {
   };
 
 
+        
+  
+
 
   render() {
     if (this.state.error) return <h1>{this.state.error}</h1>;
@@ -242,8 +245,12 @@ export default class BusinessDetails extends Component {
         )}
 
         <br></br>
+
+          {// For demonstration only
+          }
+         <a href="http://www.schokofabrik.de/" about="blank">
           <button onClick={this.backgroundColor}>Go To Website</button>
-        
+          </a>
         
 
         {this.state.editForm && (
