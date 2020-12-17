@@ -193,6 +193,8 @@ export default class BusinessDetails extends Component {
     }
   };
 
+
+
   render() {
     if (this.state.error) return <h1>{this.state.error}</h1>;
     if (!this.state.business) return <h1>Loading...</h1>;
@@ -225,7 +227,7 @@ export default class BusinessDetails extends Component {
          {this.state.business.zipCode} &nbsp; 
         {this.state.business.city} <br></br>
 
-        {this.state.business.country}
+        {this.state.business.country} <br></br>
         {this.state.business.email}
         </div>
 
@@ -239,6 +241,9 @@ export default class BusinessDetails extends Component {
           <button onClick={this.toggleEditForm}>Edit Business</button>
         )}
 
+        
+          <button onClick={this.backgroundColor}>Add to Favorite</button>
+        
         
 
         {this.state.editForm && (

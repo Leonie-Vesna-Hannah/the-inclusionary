@@ -3,6 +3,7 @@ import axios from "axios";
 import BusinessList from "./BusinessList";
 import AddBusiness from "./AddBusiness";
 import SearchBar from "./SearchBar";
+import styles from "./Businesses.module.css";
 
 export default class Businesses extends Component {
   state = {
@@ -37,7 +38,7 @@ export default class Businesses extends Component {
 
   mySearch = (event) => {
     this.setState({
-      search: event.target.value,
+      search: event.target.value.toLowerCase(),
     });
   };
 
@@ -51,7 +52,27 @@ export default class Businesses extends Component {
       <div className="businesses-container">
         <SearchBar mySearch={this.mySearch} />
         {/* <AddBusiness getData={this.getData} /> */}
+      
+        <div className={styles.welcomeBox}>
+        <div className={styles.welcomeText}>
+         <h3> Welcome 🙌</h3> <br></br>
+      <paragraph> You are looking for places and businesses led by women*! 
+      Wonderful, you are aware of the gender gap! <br></br>
+      Women fight bravely and powerful a continuous struggle - 
+      both in society in general and in their places of work. <br></br>
+      <b> There is a lot of talk, here you can take action! </b><br></br>
+      The road to equality lies ahead, look at our range of businesses,   
+      they are all led by women*!<br></br>
+      Visit their sites, and support them by going there!
+      </paragraph>
+      </div>
+      </div>
+      
+
         <BusinessList businesses={filteredBusinesses} />
+
+     
+
       </div>
     );
   }
