@@ -1,0 +1,18 @@
+.headerSection {
+  background-color: #ACACDE; 
+  padding: 20px; 
+display: flex; 
+justify-content: flex-end;
+}
+
+.linkTo {
+  color: white; 
+  padding: 20px; 
+  font-size: 25px; 
+  text-transform: uppercase;
+  font-weight: 600; 
+
+}
+
+
+
