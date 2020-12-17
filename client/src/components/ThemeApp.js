@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Header from './ThemeHeader';
-import Main from './ThemeMain';
 import themes from '../themes';
 
 const ThemeApp = () => {

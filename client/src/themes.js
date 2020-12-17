@@ -1,11 +1,11 @@
 const themes = {
   default: {
-    'background-color': '#fff',
+    'background-color': 'whitesmoke',
     'color': '#000',
     'font-family': "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
   },
-  red: {
-    'background-color': '#dc6868',
+  pink: {
+    'background-color': '#FFE8E1',
     'color': '#a50b0b',
     'font-family': "'Courier New', Courier, monospace"
   },
@@ -13,8 +13,8 @@ const themes = {
     'background-color': '#000',
     'color': '#fff',
   },
-  white: {
-    'background-color': '#fff',
+  blue: {
+    'background-color': '#E5FCFF',
     'color': '#847d7d',
     'font-family': 'Verdana, Geneva, Tahoma, sans-serif'
   }
