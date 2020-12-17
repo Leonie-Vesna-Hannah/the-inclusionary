@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../services/auth";
+import CategoriesList from "./CategoriesList.js";
 
 const handleLogout = (props) => {
   // console.log(props);
@@ -14,7 +15,7 @@ function Header(props) {
     <section className="header-section">
       {props.user ? (
         <nav>
-        <Link to="/">Home</Link>
+          <Link to="/">Home</Link>
           <Link to="/my-own-business">See your business profile</Link>
           <Link to="/" onClick={() => handleLogout(props)}>
             Log out
@@ -27,6 +28,7 @@ function Header(props) {
           <Link to="/login">Login</Link>
         </nav>
       )}
+      <CategoriesList />
     </section>
   );
 }

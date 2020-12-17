@@ -8,7 +8,7 @@ export default function Home ()
   return (
     <div>
 
-        <CategoriesList /> 
+        {/* <CategoriesList />  */}
      
          <Businesses />
 
