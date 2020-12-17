@@ -1,0 +1,14 @@
+.categories {
+  display: grid;
+  grid-gap: 40px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 22px;
+  justify-content: center;
+  align-content: center; 
+  padding: 30px; 
+}
+
+button {
+  color: #B8336A; 
+}
