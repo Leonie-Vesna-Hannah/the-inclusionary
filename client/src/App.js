@@ -14,6 +14,7 @@ import Home from "./components/Home";
 import OwnBusiness from "./components/OwnBusiness";
 //import SearchBar from "./components/SearchBar";
 import Categories from "./components/Categories"; 
+import ThemeApp from "./components/ThemeApp"; 
 
 class App extends Component {
   state = {
@@ -67,6 +68,12 @@ class App extends Component {
           exact
           path="/categories/:category"
           render={(props) => <Categories {...props} />}
+        />
+
+<Route
+          exact
+          path="/themeApp"
+          component={ThemeApp} />}
         />
 
         <Footer />

@@ -1,0 +1,9 @@
+.themeDropdown {
+display: flex;
+margin-left: -700px; 
+width: 200px; 
+}
+
+.selectFilter {
+  width: 200px; 
+}
