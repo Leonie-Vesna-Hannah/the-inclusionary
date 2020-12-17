@@ -44,7 +44,7 @@ export default class Categories extends Component {
             <div className={styles.categories}>
               <Link to={`/businesses/${filteredBusiness._id}`}>
                 {" "}
-                {filteredBusiness.title}{" "}
+                <h2 className={styles.businessName}>{filteredBusiness.title}{" "}</h2>
                 <figure className={styles.imgWrapper}>
                 <img src={filteredBusiness.picture} alt="businessPicture"></img>
               </figure>
