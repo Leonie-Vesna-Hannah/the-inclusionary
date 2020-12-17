@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../services/auth";
+import SearchBar from "./SearchBar";
 
 const handleLogout = (props) => {
   // console.log(props);
