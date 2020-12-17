@@ -55,7 +55,7 @@ class Signup extends Component {
           <div className={styles.signupPass}>
             <label htmlFor="password">Password:</label>
             <input
-              type="text"
+              type="password"
               name="password"
               id="password"
               value={this.state.password}

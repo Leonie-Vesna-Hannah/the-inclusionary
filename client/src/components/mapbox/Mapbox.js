@@ -17,7 +17,7 @@ class Mapbox extends Component {
   state = {
     lng: this.props.long,
     lat: this.props.lat,
-    zoom: 5,
+    zoom: 50,
   };
 
   // once the page has loaded we can use the componentDidMount to pull in the information form Mapbox

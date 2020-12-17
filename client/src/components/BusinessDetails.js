@@ -5,6 +5,7 @@ import service from "../services/upload.js";
 import Mapbox from "./mapbox/Mapbox";
 import styles from "./BusinessDetails.module.css";
 
+
 export default class BusinessDetails extends Component {
   state = {
     business: null,
@@ -72,8 +73,7 @@ export default class BusinessDetails extends Component {
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${street}%20${this.state.houseNumber}%20${this.state.zipCode}%20${this.state.city}.json?country=DE&access_token=pk.eyJ1IjoidmVzbmFtIiwiYSI6ImNraXEzMXk2NzBjczgyc3A5NzM1cnZ4eHUifQ.3lDAsenrxdP6Sq4WVSo43g`
       )
       .then((result) => {
-        console.log("result", result);
-        console.log("long", result.data.features[0].center[1]);
+        
         this.setState({
           // center: (2) [13.423872, 52.486002]
           lat: result.data.features[0].center[1],
@@ -206,19 +206,30 @@ export default class BusinessDetails extends Component {
     if (user && user._id === owner) allowedToDelete = true;
 
     return (
-      <section>
+     
+      <section className={styles.businessList}>
+      <center>
+        
         <img src={this.state.business.picture} alt="business" />
         <h1>{this.state.business.title}</h1>
-        <p>{this.state.business.headOfBusiness}</p>
+        <p><b>Owner: </b>{this.state.business.headOfBusiness}</p>
+        <p class={styles.businessDescription}> {this.state.business.description}</p>
+        <p> <b>Category: </b> {this.state.business.category}</p>
+        
+        <div className={styles.businessAdress}>
+         <b>Address:</b><br>
 
-        <p>{this.state.business.description}</p>
-        <p>{this.state.business.category}</p>
-        <p>{this.state.business.street}</p>
-        <p>{this.state.business.houseNumber}</p>
-        <p>{this.state.business.city}</p>
-        <p>{this.state.business.zipCode}</p>
-        <p>{this.state.business.country}</p>
-        <p>{this.state.business.email}</p>
+        </br>
+        {this.state.business.street} &nbsp; 
+        {this.state.business.houseNumber} <br></br>
+         {this.state.business.zipCode} &nbsp; 
+        {this.state.business.city} <br></br>
+
+        {this.state.business.country}
+        {this.state.business.email}
+        </div>
+
+        <br></br>
 
         {allowedToDelete && (
           <button onClick={this.deleteBusiness}>Delete Business</button>
@@ -227,6 +238,9 @@ export default class BusinessDetails extends Component {
         {allowedToDelete && (
           <button onClick={this.toggleEditForm}>Edit Business</button>
         )}
+
+        
+
         {this.state.editForm && (
           <EditBusiness
             {...this.state}
@@ -235,8 +249,14 @@ export default class BusinessDetails extends Component {
             handleFileUpload={this.handleFileUpload}
           />
         )}
-        <Mapbox lat={this.state.lat} long={this.state.long} />
+        <br></br><br></br>
+        <div className={styles.mapbox}> 
+        <Mapbox lat={this.state.lat} long={this.state.long}  /> 
+        </div>
+      
+        </center>
       </section>
+      
     );
   }
 }
