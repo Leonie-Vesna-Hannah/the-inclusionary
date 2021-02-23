@@ -69,7 +69,7 @@ class App extends Component {
           path="/categories/:category"
           render={(props) => <Categories {...props} />}
         />
-<Route
+        <Route  
           exact
           path="/Credits"
           component={Credits} />
