@@ -10,7 +10,7 @@ export default function Credits() {
 
   GitHub Master: Hannah <br></br><br></br>
 
-  Maps Fighter: Vesna <br></br><br></br>
+  Functionalities Fighter: Vesna <br></br><br></br>
 
   ColorSwitch: Leonie <br></br><br></br>
 
